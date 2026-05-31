@@ -1,60 +1,255 @@
-# CodeIgniter 4 Framework
+# NTC Portal System
 
-## What is CodeIgniter?
+NTC Portal System is a modern student portal system developed using CodeIgniter 4 that provides students with a centralized platform for managing academic and school-related activities. The system features a clean, responsive, and user-friendly interface designed to improve accessibility and efficiency in handling student information and services.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+## System Features
 
-This repository holds the distributable version of the framework.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+### Authentication
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+* Secure Student Login System
+* Session-Based Authentication
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+### Student Dashboard
 
-## Important Change with index.php
+* Dashboard Overview
+* Student Schedule Management
+* Exam Board Access
+* Grade Report Viewing
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+### Academic Services
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+* Homework Tracking
+* File Submission System
+* Course Enrollment Management
 
-**Please** read the user guide for a better explanation of how CI4 works!
+  * Add Courses
+  * Unenroll from Courses
 
-## Repository Management
+### Communication
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+* School Announcements
+* Pagination for Announcement Listings
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+### Payment Services
 
-## Contributing
+* Online Payment Center
 
-We welcome contributions from the community.
+  * GCash
+  * Maya
+  * DragonPay
+  * 7-Eleven Payment Center
 
-Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/CONTRIBUTING.md) section in the development repository.
+### Account Management
 
-## Server Requirements
+* Update Profile Information
+* Account Settings Management
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+## Technology Stack
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+### Backend
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+* PHP 8.1+
+* CodeIgniter 4
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+### Database
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+* MySQL
+
+### Frontend
+
+* HTML5
+* CSS3
+* JavaScript
+* Font Awesome 6.5
+
+## Security Implementation
+
+### Cross-Site Request Forgery (CSRF) Protection
+
+* Enabled globally via `app/Config/Filters.php`
+* Every POST form contains `csrf_field()`
+* Invalid requests automatically return 403 Forbidden
+
+### Cross-Site Scripting (XSS) Prevention
+
+* User-generated output is escaped using CodeIgniter's `esc()` helper
+* Custom XSS Filter sanitizes incoming POST data
+* Prevents execution of malicious scripts stored in the database
+
+## Installation Guide
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Junelledc0716/NTC-Portal-System.git
+```
+
+### 2. Move the Project
+
+Copy the project folder to:
+
+```text
+C:\xampp\htdocs\
+```
+
+### 3. Import the Database
+
+Import the provided SQL database file using phpMyAdmin.
+
+### 4. Configure Environment Variables
+
+Open the `.env` file and update the following settings:
+
+```env
+app.baseURL = 'http://localhost/NTC-Portal-System/public/'
+
+database.default.hostname = localhost
+database.default.database = univercity_portal
+database.default.username = root
+database.default.password =
+```
+
+### 5. Start XAMPP Services
+
+Start:
+
+* Apache
+* MySQL
+
+### 6. Run the Application
+
+```bash
+php spark serve
+```
+
+### 7. Access the System
+
+Open your browser and visit:
+
+```text
+http://localhost:8080
+```
+
+## Deployment
+
+### Live Website
+
+https://ntc-portal-group01.infinityfreeapp.com/login
+
+The system is deployed online and can be accessed through the link above.
+
+## Default Test Account
+
+**Username:** [Elle@school.edu](mailto:Elle@school.edu)
+**Password:** password
+
+## Testing and Debugging
+
+The system has been tested using various debugging and validation techniques.
+
+### PHPUnit Testing
+
+```bash
+php spark test
+```
+
+### Security Testing
+
+* CSRF Protection Testing
+* XSS Prevention Testing
+* Validation Testing
+
+### Debugging Tools
+
+* Stack Trace Analysis
+* Session Inspection
+* Request Inspection
+* `dd()` Helper for Development Debugging
+
+## Project Structure
+
+```text
+NTC-Portal-System/
+├── app/
+│   ├── Config/
+│   │   ├── Filters.php
+│   │   ├── Routes.php
+│   │   └── Security.php
+│   ├── Controllers/
+│   │   ├── AuthController.php
+│   │   ├── DashboardController.php
+│   │   ├── ScheduleController.php
+│   │   ├── ExamController.php
+│   │   ├── HomeworkController.php
+│   │   ├── GradeController.php
+│   │   ├── CourseController.php
+│   │   ├── AnnouncementController.php
+│   │   ├── PaymentController.php
+│   │   └── AccountController.php
+│   ├── Filters/
+│   │   └── XssFilter.php
+│   ├── Models/
+│   │   ├── StudentModel.php
+│   │   ├── CourseModel.php
+│   │   ├── ExamModel.php
+│   │   ├── HomeworkModel.php
+│   │   ├── AnnouncementModel.php
+│   │   ├── GradeModel.php
+│   │   └── PaymentModel.php
+│   └── Views/
+│       ├── layouts/
+│       │   └── main.php
+│       ├── auth/
+│       │   └── login.php
+│       ├── dashboard/
+│       │   └── index.php
+│       ├── schedule/
+│       │   └── index.php
+│       ├── examboard/
+│       │   └── index.php
+│       ├── homework/
+│       │   └── index.php
+│       ├── grade/
+│       │   └── index.php
+│       ├── courses/
+│       │   └── index.php
+│       ├── announcements/
+│       │   └── index.php
+│       ├── payment/
+│       │   └── index.php
+│       └── account/
+│           └── index.php
+├── public/
+│   ├── css/
+│   │   └── style.css
+│   ├── img/
+│   │   ├── ntc_logo.png
+│   │   ├── banner.png
+│   │   └── default.png
+│   └── uploads/
+│       └── profiles/
+├── tests/
+│   └── app/
+│       └── AuthTest.php
+├── writable/
+│   └── uploads/
+├── .env
+├── composer.json
+└── README.md
+```
+
+## Developers
+
+Developed by BSIT students for academic and educational purposes.
+
+* April Nicole Custorio
+* Junelle F. Dela Cruz
+* Maureen C. Santos
+* Gabriel C. Maningo
+
+**Bachelor of Science in Information Technology (BSIT)**
+**3rd Year – BSIT 3.2**
+
+## Disclaimer
+
+This project was developed for academic and educational purposes only. The system serves as a demonstration of web application development concepts using CodeIgniter 4, database management, security implementation, and responsive user interface design.
