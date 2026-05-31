@@ -72,6 +72,7 @@ class Filters extends BaseFilters
     'before' => [
         'honeypot',
         'csrf',
+        'xss',
     ],
     'after'  => [
         'toolbar',
