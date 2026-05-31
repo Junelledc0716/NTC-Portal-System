@@ -52,7 +52,14 @@
                 </thead>
                 <tbody>
                     <?php foreach($exams as $e): ?>
-                  <dito ilagay>
+                    <tr>
+                        <td><?= esc($e['exam_name']) ?></td>
+                        <td><?= esc($e['course_code']) ?></td>
+                        <td><?= date('M d, Y', strtotime($e['exam_date'])) ?></td>
+                        <td><?= esc($e['exam_time']) ?></td>
+                        <td><?= esc($e['location']) ?></td>
+                        <td><span class="badge <?= $e['status'] === 'Completed' ? 'badge-green' : 'badge-blue' ?>"><?= $e['status'] ?></span></td>
+                    </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
