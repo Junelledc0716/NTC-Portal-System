@@ -1,6 +1,6 @@
 # NTC Portal System
 
-NTC Portal System is a modern student portal system developed using CodeIgniter 4 that provides students with a centralized platform for managing academic and school-related activities. The system features a clean, responsive, and user-friendly interface designed to improve accessibility and efficiency in handling student information and services.
+NTC Portal System is a modern student portal system developed using CodeIgniter 4 that provides students with a centralized platform for managing academic and school-related activities. 
 
 ## System Features
 
