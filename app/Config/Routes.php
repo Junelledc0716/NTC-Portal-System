@@ -27,3 +27,8 @@ $routes->post('/accountsettings/update', 'AccountController::update');
 $routes->post('/accountsettings/uploadpic', 'AccountController::uploadPic');
 $routes->post('/enrolledcourses/add', 'CourseController::addCourse');
 $routes->post('/enrolledcourses/unenroll/(:num)', 'CourseController::unenroll/$1');
+
+
+$routes->post('/accountsettings/uploadpic', 'AccountController::uploadPic');
+$routes->post('/enrolledcourses/add', 'CourseController::addCourse');
+$routes->post('/enrolledcourses/unenroll/(:num)', 'CourseController::unenroll/$1');
