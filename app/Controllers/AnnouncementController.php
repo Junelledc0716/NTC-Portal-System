@@ -3,23 +3,23 @@ namespace App\Controllers;
 use App\Models\AnnouncementModel;
 
 class AnnouncementController extends BaseController {
-    public function index($page = 1) {
+    public function index() {
         if ($r = $this->requireLogin()) return $r;
 
-        $model   = new AnnouncementModel();
-        $perPage = 5;
-        $total   = $model->countAll();
-        $offset  = ($page - 1) * $perPage;
+        $model = new AnnouncementModel();
 
         $announcements = $model->orderBy('created_at', 'DESC')
-                               ->findAll($perPage, $offset);
+                               ->paginate(5, 'default');
 
-        $totalPages = ceil($total / $perPage);
+        $pager       = $model->pager;
+        $total       = $model->countAll();
+        $currentPage = $pager->getCurrentPage();
 
         return view('announcements/index', [
             'announcements' => $announcements,
-            'currentPage'   => $page,
-            'totalPages'    => $totalPages,
+            'pager'         => $pager,
+            'total'         => $total,
+            'currentPage'   => $currentPage,
         ]);
     }
 }

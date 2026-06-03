@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Tests\App\PortalTest" file="C:\xampp\htdocs\NTC_portal\tests\app\PortalTest.php" tests="3" assertions="5" errors="0" failures="0" skipped="0" time="0.089786">
+    <testcase name="testHomePage" file="C:\xampp\htdocs\NTC_portal\tests\app\PortalTest.php" line="10" class="Tests\App\PortalTest" classname="Tests.App.PortalTest" assertions="2" time="0.076295"/>
+    <testcase name="testModelData" file="C:\xampp\htdocs\NTC_portal\tests\app\PortalTest.php" line="21" class="Tests\App\PortalTest" classname="Tests.App.PortalTest" assertions="1" time="0.003820"/>
+    <testcase name="testValidationRule" file="C:\xampp\htdocs\NTC_portal\tests\app\PortalTest.php" line="29" class="Tests\App\PortalTest" classname="Tests.App.PortalTest" assertions="2" time="0.009671"/>
+  </testsuite>
+</testsuites>

@@ -20,7 +20,7 @@ $routes->get('/gradereport', 'GradeController::index');
 $routes->get('/enrolledcourses', 'CourseController::index');
 $routes->get('/announcements/(:num)', 'AnnouncementController::index/$1');
 $routes->get('/announcements', 'AnnouncementController::index');
-$routes->get('/accountsettings', 'AccountController::index');
+$routes->get('/announcements/(:num)', 'AnnouncementController::index/$1');
 $routes->get('/payment', 'PaymentController::index');
 $routes->post('/payment/process', 'PaymentController::process');
 $routes->post('/accountsettings/update', 'AccountController::update');
