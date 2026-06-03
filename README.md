@@ -8,6 +8,8 @@ NTC Portal System is a modern student portal system developed using CodeIgniter 
 
 * Secure Student Login System
 * Session-Based Authentication
+* Email Login Notification System
+* Automatically sends login notification emails to elle@school.edu using Mailtrap SMTP integration.
 
 ### Student Dashboard
 
